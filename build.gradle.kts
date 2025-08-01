@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.dokka") version "1.9.20"
     id("io.gitlab.arturbosch.detekt") version "1.23.4"
     id("me.champeau.jmh") version "0.7.2"
+    application
 }
 
 group = "org.kotlin.concurrency"
@@ -60,6 +61,10 @@ kotlin {
 detekt {
     config.setFrom("$projectDir/config/detekt.yml")
     buildUponDefaultConfig = true
+}
+
+application {
+    mainClass.set("MainKt")
 }
 
 jmh {
